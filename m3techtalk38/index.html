@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>非エンジニアによるA/Bテスト</title>
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown data-separator="^---"
+					data-separator-vertical="^--"
+					data-separator-notes="^Notes:">
+					<script type="text/template">
+## 非エンジニアによるA/Bテスト
+by [Takashi Takebayashi](https://twitter.com/changeworlds)
+
+---
+
+## INTRODUCTION
+### Why 非エンジニア?
+
+* アジャイルプロジェクトマネージャー←エンジニアという文字がどこにも入っていない<!-- .element: class="fragment roll-in" -->
+* So, 「おまえはエンジニアじゃないでしょ！」と言われてしまう。<!-- .element: class="fragment roll-in" -->
+* That’s life（またの名をほーん、で？）.<!-- .element: class="fragment roll-in" -->
+
+---
+
+## Agenda
+
+* The origin of an affair
+* Counter-plans
+* Frequently Asked Questions
+
+---
+
+## The origin of an affair
+### A SHORT TIME AGO IN A COMPANY……
+
+* Director asked 「A/Bテストしたい！」<!-- .element: class="fragment roll-in" -->
+* I asked「ここのやり方は知らないので確認しますわ」<!-- .element: class="fragment roll-in" -->
+	* Eng Wiki見るよ<!-- .element: class="fragment roll-in" -->
+		* Nothing!<!-- .element: class="fragment roll-in" -->
+		* ( ﾟдﾟ)ﾎﾟｶｰﾝ ・・・<!-- .element: class="fragment roll-in" -->
+
+---
+
+### I ask God!
+
+* I asked 「神よ、ここのA/Bテストのやり方について教えてクレメンス」<!-- .element: class="fragment roll-in" -->
+* God asked 「独自実装か誰も使ってないGemを使うか、二つに一つだ」<!-- .element: class="fragment roll-in" -->
+
+---
+
+![マジで！？](http://e-village.main.jp/gazou/image_gazou/gazou_0117.jpg)
+
+---
+
+## Counter-plans
+### Plan A：独自実装
+
+* Eng Wikiにも定義がないので十中八九違う実装になる<!-- .element: class="fragment roll-in" -->
+* 違う実装でレビューされる<!-- .element: class="fragment roll-in" -->
+	* 「理解してない人に長時間させるより、理解している人にやらせれば良かった！」<!-- .element: class="fragment roll-in" -->
+	* 「おまえはエンジニアじゃないでしょ！」<!-- .element: class="fragment roll-in" -->
+	* やり直しで自分の作業ムダ&他の人が実装するで2重の意味でムダ<!-- .element: class="fragment roll-in" -->
+
+---
+
+見える、見えるぞ！　私にも未来が見える
+
+![そんな餌で俺様が釣られクマー](http://trecru-ch.com/wp-content/uploads/2014/07/20131219a02.jpg)
+
+Plan Aは自分と他人の工数をムダに使うのでROIが悪い<!-- .element: class="fragment roll-in" -->
+
+誰も使ってないGemを使う！I resort to PLAN B!<!-- .element: class="fragment roll-in" -->
+
+---
+
+### Plan B：誰も使ってないGem
+
+* 誰も使ってないから全部一人で調べるお<!-- .element: class="fragment roll-in" --><br/>
+![やるお](http://waq-waq.com/wp/wp-content/uploads/2014/05/aa4906.png)<!-- .element: class="fragment roll-in" -->
+* 原文(英語Document)読んで理解するお<!-- .element: class="fragment roll-in" -->
+
+---
+
+### Setup&Usage
+
+Install gem
+
+```
+view
+<% ab_test('which_is_your_best', 'ガンダムデスサイズヘル', 'ゴッドガンダム', 'マスターガンダム', 'ガンダムDX', 'ガンダムヴァサーゴ', 'ストライクガンダム', 'フリーダムガンダム', 'ガンダムエクシア', 'ダブルオーガンダム', 'ダブルオークアンタ') do | text | %>
+  <%= text %>
+<% end %>
+
+controller
+def finish_ab_test
+  finished('which_is_your_best')
+end
+```
+
+* Install gem：1行
+* A/Bテスト：4行/1テスト
+
+Piece of cake, right?<!-- .element: class="fragment roll-in" -->
+
+---
+
+## Frequently Asked Questions
+
+* ランダムタイトルバトルして、どうぞ<!-- .element: class="fragment roll-in" -->
+	* Bandit Algorithms対応済だよ<!-- .element: class="fragment roll-in" -->
+	* 常時バトル結果を反映するよ<!-- .element: class="fragment roll-in" -->
+	* 全ての場所でバトルできるよ<!-- .element: class="fragment roll-in" -->
+	* リスト作れば表示させるターゲットを指定できるよ<!-- .element: class="fragment roll-in" -->
+
+---
+
+## Frequently Asked Questions
+
+* んじゃプロコンを聞こうか？
+	* Pros<!-- .element: class="fragment roll-in" -->
+		* 簡潔に記述できる<!-- .element: class="fragment roll-in" -->
+		* CE(Continuous Experiment)可能<!-- .element: class="fragment roll-in" -->
+		* 常時結果を閲覧できる<!-- .element: class="fragment roll-in" -->
+	* Cons<!-- .element: class="fragment roll-in" -->
+		* 初回のデプロイが必須<!-- .element: class="fragment roll-in" -->
+		* A/Bテストで表示内容を変えて外部サイトへのリンクをクリックしたらOK！というCVはできない<!-- .element: class="fragment roll-in" -->
+
+---
+
+## Frequently Asked Questions
+
+* ところで、Bandit Algorithmsって何よ？
+	* A/B testingより優れているもの<!-- .element: class="fragment roll-in" -->
+	* 具体的には機械学習の中の強化学習の中のnアームバンディット問題に対するAlgorithmのこと<!-- .element: class="fragment roll-in" -->
+
+![そうかすごいななに言ってんだおまえ](http://blog-imgs-72.fc2.com/k/a/m/kamemaru777/201501042143541bd.jpg)<!-- .element: class="fragment roll-in" -->
+
+---
+
+## Frequently Asked Questions
+
+* つまり？
+	* 10個のスロットマシンの前でコインが100枚あった時に最も利益を得るためのアルゴリズム<!-- .element: class="fragment roll-in" -->
+	* 過去の経験から最も率の高いマシンにベット<!-- .element: class="fragment roll-in" -->
+	* より多くの報酬が得られないか確かめるために適当にマシンを選んでベットを繰り返す<!-- .element: class="fragment roll-in" -->
+
+---
+
+### Shut the fuck up and write some code.
+
+ぐだぐだ言ってないでコードを書けよ、ハゲ！
+
+Sir, yes, sir!<br/><!-- .element: class="fragment roll-in" -->
+![Sir, yes, sir](http://iconnectdots.com/wp-content/uploads/2009/12/drillsergeant2a.jpg)<!-- .element: class="fragment roll-in" -->
+
+---
+
+### Sample
+
+* 対象ユーザーを100人(＝コイン100枚)
+* A/B対象を「ガンダムデスサイズヘル」…etcと10種類のガンダムの名前(＝10個のスロットマシン)
+* で、「ガンダムデスサイズヘル」と表示された時だけクリックする(＝コンバージョン)
+
+---
+
+![Result](./image/evidence001.png)
+
+---
+
+## Summary
+
+* OSSで簡単に独自実装に近いことが実現できるよ<!-- .element: class="fragment roll-in" -->
+* コスパ(ROI)の観点からOSSで対応できないか考える癖は付けておいて損はないよ<!-- .element: class="fragment roll-in" -->
+
+---
+
+Thank you for your attention.<br/>
+by [Takashi Takebayashi](https://twitter.com/changeworlds)
+				    </script>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
