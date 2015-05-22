@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Getting to Plan B</title>
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown data-separator="^---"
+					data-separator-vertical="^--"
+					data-separator-notes="^Notes:">
+					<script type="text/template">
+## Getting to Plan B
+by [Takashi Takebayashi](https://twitter.com/changeworlds)
+
+---
+
+## Agenda
+
+* The origin of an affair
+* Counter-plans
+* Summary
+
+---
+
+## The origin of an affair
+### A VERY SHORT TIME AGO IN A COMPANY……
+
+Jenkinsによって平和を取り戻した定期作業  
+(＝毎回手動実行しなくていい生活)  
+しかし、平和とは壊されるのが  
+古来よりの習わしなのであった…。
+
+---
+
+「リリースして！」  
+「ぽちっとな(JenkinsのJobを開く)……ん？」
+
+---
+
+![ホワイトアウト](http://ks.c.yimg.jp/res/chie-que-1485/1/485/270/554/i320)
+
+---
+
+＿人人 人人＿  
+＞ 突然の死 ＜  
+￣Y^Y^Y^Y￣  
+
+（正しくはci2自体は死んでいないが、  
+ブラウザからアクセスができない状態）
+
+---
+
+何…だと…
+
+![何…だと…](http://cdn-ak.f.st-hatena.com/images/fotolife/y/yo-mei777/20130727/20130727213311.jpg)
+
+---
+
+一体いつからJenkinsが<ruby><rb>常に動いていると錯覚していた</rb><rt>・・・・・・・・・・・・・・</rt></ruby>？
+
+![一体いつから](http://cdn-ak.f.st-hatena.com/images/fotolife/y/yo-mei777/20130727/20130727213935.jpg)
+
+---
+
+結局手でリリースすることに…orz
+
+---
+
+### Why?
+
+* ci1, ci2のJenkins君はときどき非常に重くなる
+* マーフィーの法則からそういう時に限って依頼が来る
+
+---
+
+### What's wrong?
+
+Jenkins?<!-- .element: class="fragment roll-in" -->
+
+No! SPOF(Single Point of Failer)<!-- .element: class="fragment roll-in" -->
+
+This means I need to Plan B.<!-- .element: class="fragment roll-in" -->
+
+---
+
+## Counter-plans
+### Plan A：自動化ツール(再掲)
+
+世の中には大量の自動化ツールがある
+
+* Ansible
+* Capistrano
+* Chef
+* Grunt
+* Puppet
+* etc, etc……
+
+---
+
+### But...(再掲)
+
+* 学習コストが高い
+* 変化が激しい
+
+---
+
+#### 学習コストが高い(再掲)
+
+手でやればコピペ&ちょっと修正程度なので数分あれば十分なのに、学習時間は数分ではすまない
+
+* 新しいツールを色々インストールしないといけない
+* 新しい言語/DSLを覚えないといけない
+* 新しい概念を覚えないといけない
+
+---
+
+#### 変化が激しい(再掲)
+
+Chef-soloの時代が終わり、Chef-zeroの時代へ<br/>
+(Chef-soloなんてそもそも触ってないんだけど…)
+
+* やっている内容は変わらないのに、自動化ツールのメンテナンスのため**だけ**に書き換えないといけない
+* 自動化して楽したいのであって、自動化ツールのメンテナンスをしたいわけではない
+
+---
+
+#### 面倒なのは嫌だーーーーー！
+
+![そっちに行きたくないでござる](http://blog-imgs-46-origin.fc2.com/s/n/n/snnantn/1011221.jpg)
+
+
+---
+
+### 欲しいもの
+
+* 学習するのが簡単で
+* シェルコマンドをただ実行してくれて
+* 失敗してもいい感じに対応してくれる
+
+そういうのどっかにないの？  
+※ただJK(ただしJenkinsは除く)
+
+---
+
+ある
+
+![マジで！？](http://7g629fvtcpzwuleokbj1.cdn02.sova.bz/wp-content/uploads/2015/03/852377a0de7aa85fa90278749725feab.jpg)<!-- .element: class="fragment roll-in" -->
+
+---
+
+それは  
+Fabric！
+
+---
+
+Fabric  
+某氏「あぁ、Twitterの？  
+それならマルデバチームが使ってますよ」  
+![Fabric](http://tech.vasily.jp/content/images/tech-blog/arai_20150218/fabric.jpg)<!-- .element: class="fragment roll-in" -->
+
+（それじゃない…）<!-- .element: class="fragment roll-in" -->
+
+---
+
+Azure Service Fabric  
+「あぁ、Microsoftの？」  
+
+![Fabric](https://pbs.twimg.com/media/CDyIWVOUIAAaxBQ.png)<!-- .element: class="fragment roll-in" -->
+
+（それでもない）<!-- .element: class="fragment roll-in" -->
+
+---
+
+Fabric  
+![Fabric](http://www.papadevops.com/content/images/2015/04/fabric.png)
+
+これ！  
+（独自性のある名称をつけてよ…）
+
+---
+
+### Plan B：Fabric
+
+* メリット
+	* シンプルなので学習が簡単(後述)
+	* シェルコマンドを記述するとその通りに実行できる
+	* 柔軟な例外処理ができる
+* デメリット
+	* 社内で誰も使ってない->自分で調べるしかない
+
+---
+
+#### シンプルなFabricの書き方
+
+<pre>run(<シェルコマンド>)：引数に渡したコマンドを対象サーバーで実行
+def run_ls();
+  run('ls')
+
+local(<シェルコマンド>)：引数に渡したコマンドをローカルで実行
+def local_ls();
+  local('ls')
+
+sudo(<シェルコマンド>)：引数に渡したコマンドを対象サーバーでsudoをつけて実行
+def sudo_ls();
+  sudo('ls')</pre>
+
+Piece of cake, right?<!-- .element: class="fragment roll-in" -->
+
+---
+
+### by the way,
+
+Adminのパスワード知らない場合でも似たことができる
+
+<pre>run(<シェルコマンド>)
+def run_sudo_ls();
+  run('sudo -i -u user_name ls')</pre>
+
+---
+
+Summary
+
+* Jenkinsだけに頼るとSPOF<!-- .element: class="fragment roll-in" -->
+	* Jenkinsの死＝手動作業<!-- .element: class="fragment roll-in" -->
+* Fabricを使うと簡単に定型作業を自動化できる<!-- .element: class="fragment roll-in" -->
+	* シェルコマンドベースなので簡単<!-- .element: class="fragment roll-in" -->
+	* 柔軟な例外処理可能<!-- .element: class="fragment roll-in" -->
+
+---
+
+Any Question?
+
+---
+
+Thank you for your attention.<br/>
+by [Takashi Takebayashi](https://twitter.com/changeworlds)
+				    </script>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
