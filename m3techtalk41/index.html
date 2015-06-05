@@ -46,30 +46,37 @@ by [Takashi Takebayashi](https://twitter.com/changeworlds)
 ---
 
 ## The origin of an affair
-### A VERY SHORT TIME AGO IN A COMPANY……
+
+![ゴロゴロ](http://livedoor.blogimg.jp/hamusoku/imgs/f/9/f9b39cd4.jpg)
+
+---
 
 Jenkinsによって平和を取り戻した定期作業  
 (＝毎回手動実行しなくていい生活)  
-しかし、平和とは壊されるのが  
-古来よりの習わしなのであった…。
+しかし、平和とは壊されるのが古来よりの  
+習わしなのであった…。
 
 ---
 
 「リリースして！」  
-「ぽちっとな(JenkinsのJobを開く)……ん？」
+「ぽちっとな(JenkinsのJobを開く)<span>……ん？」<!-- .element: class="fragment roll-in" --></span>
 
 ---
+
+(真っ白な画面)
 
 ![ホワイトアウト](http://ks.c.yimg.jp/res/chie-que-1485/1/485/270/554/i320)
 
 ---
 
+Jenkinsの
+
 ＿人人 人人＿  
 ＞ 突然の死 ＜  
 ￣Y^Y^Y^Y￣  
 
-（正しくはci2自体は死んでいないが、  
-ブラウザからアクセスができない状態）
+（正しくはci2自体は死んでいないが、
+ブラウザからアクセスができない状態）<!-- .element: class="fragment roll-in" -->
 
 ---
 
@@ -85,14 +92,16 @@ Jenkinsによって平和を取り戻した定期作業
 
 ---
 
-結局手でリリースすることに…orz
+結局、手でリリース作業することに…
+
+(´・ω・｀)ｼｮﾎﾞｰﾝ<!-- .element: class="fragment roll-in" -->
 
 ---
 
 ### Why?
 
 * ci1, ci2のJenkins君はときどき非常に重くなる
-* マーフィーの法則からそういう時に限って依頼が来る
+* マーフィーの法則からそういう時に限ってリリースが必要になる
 
 ---
 
@@ -147,7 +156,7 @@ Chef-soloの時代が終わり、Chef-zeroの時代へ<br/>
 
 ---
 
-#### 面倒なのは嫌だーーーーー！
+#### 面倒なのは嫌だ！
 
 ![そっちに行きたくないでござる](http://blog-imgs-46-origin.fc2.com/s/n/n/snnantn/1011221.jpg)
 
@@ -176,8 +185,7 @@ Fabric！
 
 ---
 
-Fabric  
-某氏「あぁ、Twitterの？  
+某氏「Fabric？　あぁ、Twitterの？  
 それならマルデバチームが使ってますよ」  
 ![Fabric](http://tech.vasily.jp/content/images/tech-blog/arai_20150218/fabric.jpg)<!-- .element: class="fragment roll-in" -->
 
@@ -185,12 +193,11 @@ Fabric
 
 ---
 
-Azure Service Fabric  
-「あぁ、Microsoftの？」  
+「これじゃない？　じゃぁ、Microsoftの？」  
 
-![Fabric](https://pbs.twimg.com/media/CDyIWVOUIAAaxBQ.png)<!-- .element: class="fragment roll-in" -->
+![Azure Service Fabric](https://pbs.twimg.com/media/CDyIWVOUIAAaxBQ.png)<!-- .element: class="fragment roll-in" -->
 
-（それでもない）<!-- .element: class="fragment roll-in" -->
+（それでもない…）<!-- .element: class="fragment roll-in" -->
 
 ---
 
@@ -205,11 +212,11 @@ Fabric
 ### Plan B：Fabric
 
 * メリット
-	* シンプルなので学習が簡単(後述)
-	* シェルコマンドを記述するとその通りに実行できる
-	* 柔軟な例外処理ができる
-* デメリット
-	* 社内で誰も使ってない->自分で調べるしかない
+	* シンプルなので学習が簡単(後述)<!-- .element: class="fragment roll-in" -->
+	* シェルコマンドを記述するとその通りに実行できる<!-- .element: class="fragment roll-in" -->
+	* 柔軟な例外処理ができる<!-- .element: class="fragment roll-in" -->
+* デメリット<!-- .element: class="fragment roll-in" -->
+	* 社内で誰も使ってない->自分で調べるしかない<!-- .element: class="fragment roll-in" -->
 
 ---
 
@@ -244,7 +251,7 @@ def run_sudo_ls();
 Summary
 
 * Jenkinsだけに頼るとSPOF<!-- .element: class="fragment roll-in" -->
-	* Jenkinsの死＝手動作業<!-- .element: class="fragment roll-in" -->
+	* Jenkinsの死＝手動作業を意味する<!-- .element: class="fragment roll-in" -->
 * Fabricを使うと簡単に定型作業を自動化できる<!-- .element: class="fragment roll-in" -->
 	* シェルコマンドベースなので簡単<!-- .element: class="fragment roll-in" -->
 	* 柔軟な例外処理可能<!-- .element: class="fragment roll-in" -->
